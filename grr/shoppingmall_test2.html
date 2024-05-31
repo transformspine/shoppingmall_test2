@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국가권력급 쇼핑몰</title>
+    <style>
+        header {
+            position: absolute;
+            width: 100%;
+            height: 71px;
+            background: url(header.png);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            text-align: center;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+        }
+
+        .sitemap {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        /* 대메뉴 */
+        .parentMenu > ul {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        /* 하위 메뉴 펼치기 */
+        .parentMenu.active > ul {
+            max-height: 1000px;
+        }
+
+        /* 하위 메뉴 */
+        .parentMenu > ul > li > ul {
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        /* 클릭 시 하위 하위 메뉴 펼쳐지짐 */
+        .parentMenu > ul > li.active > ul {
+            display: block;
+            max-height: 1000px;
+        }
+
+        /* 꼬레아 사진 */
+        .countryImg {
+            display: block;
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <div class="sitemap">
+        <ul>
+            <li class="parentMenu">
+                <a href="#country">
+                    <img class="countryImg" src="country_flag.png" > <!-- 국가 선택 이미지 추가 -->
+                </a>
+                <ul>
+                    <li>국가 목록</li>
+                    <li>언어 설정</li>
+                </ul>
+            </li>
+            <li class="parentMenu">
+                <a href="#cart">장바구니</a>
+                <ul>
+                    <li>장바구니 목록</li>
+                    <li>결제 페이지</li>
+                    <li>배송 정보 입력</li>
+                    <li>할인 코드 적용</li>
+                </ul>
+            </li>
+            <li class="parentMenu">
+                <a href="#mypage">마이페이지</a>
+                <ul>
+                    <li>회원 정보</li>
+                    <li>주문 내역</li>
+                    <li>배송 추적</li>
+                    <li>위시리스트</li>
+                </ul>
+            </li>
+            <li><a href="#search">검색</a></li>
+            <li class="parentMenu">
+                <a href="#menu">메뉴</a>
+                <ul>
+                    <li class="parentMenu">
+                        <a href="#shop">SHOP</a>
+                        <ul>
+                            <li>ALL</li>
+                            <li class="parentMenu">
+                                <a href="#outer">OUTER</a>
+                                <ul>
+                                    <li>자켓</li>
+                                    <li>코트</li>
+                                    <li>패딩</li>
+                                </ul>
+                            </li>
+                            <li class="parentMenu">
+                                <a href="#top">TOP</a>
+                                <ul>
+                                    <li>티셔츠</li>
+                                    <li>셔츠</li>
+                                </ul>
+                            </li>
+                            <li class="parentMenu">
+                                <a href="#bottom">BOTTOM</a>
+                                <ul>
+                                    <li>바지</li>
+                                    <li>반바지</li>
+                                </ul>
+                            </li>
+                            <li class="parentMenu">
+                                <a href="#acc">ACC</a>
+                                <ul>
+                                    <li>가방</li>
+                                    <li>모자</li>
+                                    <li>주얼리</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parentMenu">
+                        <a href="#social">SOCIAL MEDIA</a>
+                        <ul>
+                            <li>YouTube</li>
+                            <li>Instagram</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const parentMenus = document.querySelectorAll('.parentMenu');
+        parentMenus.forEach(parentMenu => {
+            parentMenu.addEventListener('click', () => {
+                parentMenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
